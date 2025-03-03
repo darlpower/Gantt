@@ -5,11 +5,16 @@ import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback_context, dash_table
 import io
 from flask import send_file
+import glob
 
 # 設定相對路徑（假設 Excel 檔案位於 "app/xlsfile" 資料夾內）
 folder_path = "app/xlsfile"
-file_name = "工作進度安排_HHL_250214.xlsx"
-file_path = os.path.join(folder_path, file_name)
+# 取得資料夾中所有 .xlsx 檔案的路徑
+excel_files = glob.glob(os.path.join(folder_path, '*.xlsx'))
+
+# 找出最新的檔案，依據最後修改時間
+file_path = max(excel_files, key=os.path.getmtime)
+print(file_path)
 # 讀取 Excel 檔案及處理資料
 try:
     # xls = pd.ExcelFile(r"X:\63882\gantt\工作進度安排_HHL_250214.xlsx")
