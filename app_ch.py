@@ -7,7 +7,8 @@ from datetime import timedelta
 import numpy as np
 
 # 讀取 Excel 文件
-df = pd.read_excel('長春祠復建工程甘特圖.xlsx')
+df = pd.read_excel('長春祠復建工程甘特圖.xlsx', sheet_name=0)
+
 
 # 轉換日期欄位
 df['Start'] = pd.to_datetime(df['Start'])
@@ -128,7 +129,7 @@ fig.update_yaxes(
 # 獲取工作項目的正確 y 值
 # 當使用 group_tasks=True 時，Plotly 會按照任務在 dataframe 中的順序排列
 task_positions = {}
-y_position = 13
+y_position = 12
 for i, task in enumerate(unique_tasks):
     task_positions[task] = i
     print(f"i等於{i}")

@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="391fd56f-585f-4af4-be02-810b3b7b1503" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_old/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_old/gantt_chart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_old/gantt_chart_updated.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_old/main2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_old/main_Inv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_old/schedule2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_old/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/xlsfile/4899D700" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/xlsfile/工作進度安排_HHL_250324.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/~$工作進度安排_HHL_250214.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/工作進度安排_HHL_250213.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/工作進度安排_HHL_250214.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/長春祠復建工程甘特圖.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_Progress.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_individually.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_prog_dash.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_comparison.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_ch.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_ch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/長春祠復建工程甘特圖.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/長春祠復建工程甘特圖.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +54,16 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app_Blu.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app_Progress.executor&quot;: &quot;Run&quot;,
     &quot;Python.app_ch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app_individually.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app_prog_dash.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.main2.executor&quot;: &quot;Run&quot;,
     &quot;Python.main_Inv.executor&quot;: &quot;Run&quot;,
     &quot;Python.main_task.executor&quot;: &quot;Run&quot;,
+    &quot;Python.profile_comparison.executor&quot;: &quot;Run&quot;,
     &quot;Python.schedule2.executor&quot;: &quot;Run&quot;,
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;Python.ttt.executor&quot;: &quot;Run&quot;,
@@ -71,13 +71,14 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/63882/PycharmProjects/Gantt/_old&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/63882/PycharmProjects/Gantt/wheels&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/63882/PycharmProjects/Gantt/main_Inv.py&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\63882\PycharmProjects\Gantt\wheels" />
       <recent name="C:\Users\63882\PycharmProjects\Gantt" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -86,7 +87,7 @@
       <recent name="C:\Users\63882\PycharmProjects\Gantt\_old" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Gantt" />
       <option name="ENV_FILES" value="" />
@@ -109,9 +110,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="app_Progress" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Gantt" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_Progress.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.app_Progress" />
       </list>
     </recent_temporary>
   </component>
@@ -259,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742787515407</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update">
+      <option name="closed" value="true" />
+      <created>1742787648814</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742787648814</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
