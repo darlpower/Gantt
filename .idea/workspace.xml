@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="391fd56f-585f-4af4-be02-810b3b7b1503" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/app_Progress.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_individually.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_prog_dash.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile_comparison.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_ch.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_ch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/長春祠復建工程甘特圖.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/長春祠復建工程甘特圖.xlsx" afterDir="false" />
-    </list>
+    <list default="true" id="391fd56f-585f-4af4-be02-810b3b7b1503" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +18,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -50,32 +46,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app_Blu.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app_Progress.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app_ch.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app_individually.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app_prog_dash.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_Inv.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_task.executor&quot;: &quot;Run&quot;,
-    &quot;Python.profile_comparison.executor&quot;: &quot;Run&quot;,
-    &quot;Python.schedule2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ttt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/63882/PycharmProjects/Gantt/wheels&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/63882/PycharmProjects/Gantt/main_Inv.py&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Python.app.executor": "Run",
+    "Python.app_Blu.executor": "Run",
+    "Python.app_Progress.executor": "Run",
+    "Python.app_ch.executor": "Run",
+    "Python.app_individually.executor": "Run",
+    "Python.app_prog_dash.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.main2.executor": "Run",
+    "Python.main_Inv.executor": "Run",
+    "Python.main_task.executor": "Run",
+    "Python.profile_comparison.executor": "Run",
+    "Python.schedule2.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.ttt.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/63882/PycharmProjects/Gantt/wheels",
+    "settings.editor.selected.configurable": "http.proxy",
+    "two.files.diff.last.used.file": "C:/Users/63882/PycharmProjects/Gantt/main_Inv.py"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\63882\PycharmProjects\Gantt\wheels" />
@@ -291,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742787648814</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update">
+      <option name="closed" value="true" />
+      <created>1769516779448</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1769516779448</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
