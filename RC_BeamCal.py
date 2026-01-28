@@ -4,18 +4,18 @@ from fpdf import FPDF
 from fpdf.enums import XPos, YPos
 import platform
 import os
-
+#藉由輸入設計彎矩、梁寬、梁深、配筋量等設計條件，計算梁應變，確認是否為拉力控制斷面。
 # ==========================================
 # 1. 輸入參數定義 (雙排筋邏輯)
 # ==========================================
 params = {
     "b": 120,  # 梁寬 (cm)
     "h": 150,  # 梁深 (cm)
-    "num_bars": 12,  # 鋼筋總支數
+    "num_bars": 8,  # 鋼筋總支數
     "bar_diameter": 3.22,  # 主筋直徑 (D32)
     "stirrup_dia": 1.59,  # 箍筋直徑 (D16)
     "gap": 2.5,  # 鋼筋淨間距
-    "Mu": 262,  # 作用彎矩 (tf-m)
+    "Mu": 121.16,  # 作用彎矩 (tf-m)
     "C": 4,  # 保護層厚度 (cm)
     "fc": 280,  # 混凝土強度 (kgf/cm2)
     "fy": 4200  # 鋼筋強度 (kgf/cm2)
@@ -48,10 +48,16 @@ def calculate_rc_mechanics(p):
     eps_y = p['fy'] / 2040000
     if eps_t >= 0.005:
         section_type = "拉力控制斷面 (Tension-Controlled)"
+        judgment_formula = f"εt ({eps_t:.4f}) >= 0.005"
+        plot_logic = r"$\epsilon_t \geq 0.005$"  # Matplotlib 專用 TeX 語法
     elif eps_t <= eps_y:
         section_type = "壓力控制斷面 (Compression-Controlled)"
+        judgment_formula = f"εt ({eps_t:.4f}) <= εy ({eps_y:.4f})"
+        plot_logic = r"$\epsilon_t \leq \epsilon_y$"
     else:
         section_type = "過渡斷面 (Transition)"
+        judgment_formula = f"εy ({eps_y:.4f}) < εt ({eps_t:.4f}) < 0.005"
+        plot_logic = r"$\epsilon_y < \epsilon_t < 0.005$"
 
     return locals()
 
@@ -64,7 +70,7 @@ def generate_strain_plot(res):
     plt.rcParams['axes.unicode_minus'] = False
 
     p, h, dt, xb, a = res['p'], res['p']['h'], res['dt'], res['xb'], res['a']
-    eps_t, section_type = res['eps_t'], res['section_type']
+    eps_t, section_type, plot_logic = res['eps_t'], res['section_type'], res['plot_logic']
 
     fig, ax = plt.subplots(figsize=(8, 10))
     ax.plot([0, 0], [0, h], 'k-', lw=2, alpha=0.3)
@@ -97,14 +103,19 @@ def generate_strain_plot(res):
     ax.text(eps_t, h - dt - 8, f'εt = {eps_t:.4f}', color='red', fontweight='bold', ha='center')
 
     # 判定顯示
-    ax.text(0, -20, f"判定：{section_type}", fontsize=14, color='darkgreen', fontweight='bold',
-            ha='center', bbox=dict(facecolor='white', edgecolor='darkgreen', boxstyle='round,pad=0.5'))
+    #ax.text(0, -20, f"判定：{section_type}", fontsize=14, color='darkgreen', fontweight='bold',
+    #        ha='center', bbox=dict(facecolor='white', edgecolor='darkgreen', boxstyle='round,pad=0.5'))
+    result_box_txt = f"【判定結果】\n{section_type}\n依據：{plot_logic}"
+    ax.text(0.5, 1.05, result_box_txt, transform=ax.transAxes,
+            fontsize=13, color='darkgreen', fontweight='bold',
+            ha='center', va='bottom',
+            bbox=dict(facecolor='#f0fff0', edgecolor='darkgreen', boxstyle='round,pad=0.8'))
 
-    ax.set_title("雙排筋梁斷面應變分析圖", fontsize=16, pad=30)
+    ax.set_title("梁斷面應變分析圖", fontsize=16, pad=85)
     ax.set_ylabel("深度方向 (cm)");
     ax.set_xlabel("應變值 (Strain)")
     ax.set_xlim(-0.008, max(0.008, eps_t * 1.5))
-    ax.set_ylim(-30, h + 20)
+    ax.set_ylim(-15, h + 25)
     ax.grid(True, linestyle=':', alpha=0.5)
 
     plt.tight_layout()
@@ -126,7 +137,7 @@ class RCReport(FPDF):
 
     def header(self):
         self.set_font(self.font_name, size=18)
-        self.cell(0, 10, "鋼筋混凝土梁應變力學計算書", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
+        self.cell(0, 10, "梁應變計算書", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
         self.ln(5)
 
     def chapter_body(self, res):
@@ -140,7 +151,7 @@ class RCReport(FPDF):
 
         self.ln(5);
         self.set_font(self.font_name, size=14);
-        self.cell(0, 10, "二、 計算流程 (雙排筋邏輯)", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        self.cell(0, 10, "二、 計算流程 (假設為雙排筋)", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         self.set_font(self.font_name, size=11)
 
         # 顯示公式與代入數值
@@ -149,13 +160,14 @@ class RCReport(FPDF):
             f"2. 有效高度 (dt) = h - C - stirrup - bar_dia - gap/2",
             f"   dt = {p['h']} - {p['C']} - {p['stirrup_dia']} - {p['bar_diameter']} - {p['gap'] / 2} = {res['dt']:.1f} cm",
             f"3. 壓力塊深度 (a) = (As * fy) / (0.85 * fc' * b) = {res['a']:.2f} cm",
-            f"4. 中性軸深度 (xb) = a / β1 = {res['xb']:.2f} cm",
+            f"4. 中性軸深度 (xb): xb = a / β1 (此處 β1 = {res['beta1']:.2f})",
             f"5. 拉力筋應變 (εt) = 0.003 * (dt - xb) / xb = {res['eps_t']:.4f}"
         ]
         for line in f: self.cell(0, 8, line, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
         self.ln(5);
-        self.cell(0, 10, f"判定結果：{res['section_type']}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        self.cell(0, 10, f"判定結果：{res['section_type']} (依據：{res['judgment_formula']})",
+                  new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         self.image("strain_plot.png", x=25, w=150)
 
 
